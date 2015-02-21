@@ -1,0 +1,41 @@
+//Arduino code
+
+//SLAVE===98d3:31:b393f8
+int angle = 0;
+char ch;
+#include<SoftwareSerial.h>
+SoftwareSerial Serial1(4,5);
+void setup()
+{
+  Serial.begin(38400); 
+  Serial.println("Enter AT commands:");
+  Serial1.begin(38400);
+}
+
+void loop()
+{
+  Serial1.write('1');
+  while(!Serial1.available())
+  {
+  }
+  angle = Serial1.parseInt();
+  Serial.println(angle);
+//  if(ch == 'N')
+//  {
+//    Serial.println("Stall");
+//    //stall();
+//  }
+//  else
+//  {
+//    Serial.println(angle);
+//  }
+}
+
+
+
+
+
+
+
+
+
